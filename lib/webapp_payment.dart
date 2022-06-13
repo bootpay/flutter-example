@@ -10,7 +10,6 @@ class WebAppPayment extends StatelessWidget {
 
   @override
   Widget build(context) {
-    print( MediaQuery.of(context).size.width);
     // MediaQuery
     // print(MediaQuery(data: data, child: child))
     // Access the updated count variable
