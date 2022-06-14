@@ -45,5 +45,18 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+    <key>NSFaceIDUsageDescription</key>
+    <string>생체인증 결제 진행시 권한이 필요합니다</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>bootpayFlutterExample</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

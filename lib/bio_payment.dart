@@ -54,7 +54,7 @@ class BioPayment extends StatelessWidget {
 
     BioPayload payload = getBioPayload(userToken);
 
-    BootpayBio().requestPaymentPassword(
+    BootpayBio().requestPaymentBio(
       context: context,
       payload: payload,
       showCloseButton: false,

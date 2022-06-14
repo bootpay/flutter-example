@@ -63,10 +63,9 @@ class PasswordWebPayment extends StatelessWidget {
   }
 
   void bootpayTest(BuildContext context, String userToken) {
-    Payload payload = getPayload();
+    Payload payload = getPayload(userToken);
     if(kIsWeb) {
       payload.extra?.openType = "iframe";
-      payload.userToken = userToken;
     }
 
 
@@ -115,7 +114,7 @@ class PasswordWebPayment extends StatelessWidget {
     );
   }
 
-  Payload getPayload() {
+  Payload getPayload(String userToken) {
     Payload payload = Payload();
     Item item1 = Item();
     item1.name = "미키 '마우스"; // 주문정보에 담길 상품명
@@ -137,6 +136,7 @@ class PasswordWebPayment extends StatelessWidget {
 
     payload.pg = '나이스페이';
     payload.method = '카드간편';
+    payload.userToken = userToken;
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
