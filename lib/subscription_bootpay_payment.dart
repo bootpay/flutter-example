@@ -51,9 +51,6 @@ class SubscriptionBootpayPayment extends StatelessWidget {
         Bootpay().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
         //TODO - 원하시는 라우터로 페이지 이동
       },
-      onCloseHardware: () {
-        print('------- onCloseHardware');
-      },
       onIssued: (String data) {
         print('------- onIssued: $data');
       },
@@ -100,7 +97,7 @@ class SubscriptionBootpayPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '웰컴';
+    payload.pg = '나이스페이';
     payload.method = '카드자동';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명

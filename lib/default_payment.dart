@@ -52,9 +52,6 @@ class DefaultPayment extends StatelessWidget {
         Bootpay().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
         //TODO - 원하시는 라우터로 페이지 이동
       },
-      onCloseHardware: () {
-        print('------- onCloseHardware');
-      },
       onIssued: (String data) {
         print('------- onIssued: $data');
       },
@@ -73,7 +70,7 @@ class DefaultPayment extends StatelessWidget {
             return false; 후에 서버에서 결제승인 수행
          */
         // checkQtyFromServer(data);
-        return true;
+        return false;
       },
       onDone: (String data) {
         print('------- onDone: $data');
