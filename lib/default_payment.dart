@@ -14,6 +14,7 @@ class DefaultPayment extends StatelessWidget {
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
 
+
   @override
   Widget build(context) {
     // Access the updated count variable
@@ -61,15 +62,15 @@ class DefaultPayment extends StatelessWidget {
             return true;
          **/
         /***
-            2. 비동기 승인 하고자 할 때
-            checkQtyFromServer(data);
+            2. 클라이언트 승인 하고자 할 때
+            Bootpay().transactionConfirm();
             return false;
          ***/
         /***
             3. 서버승인을 하고자 하실 때 (클라이언트 승인 X)
             return false; 후에 서버에서 결제승인 수행
          */
-        // checkQtyFromServer(data);
+        Bootpay().transactionConfirm();
         return false;
       },
       onDone: (String data) {
@@ -98,11 +99,12 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '다날';
-    payload.method = '카드';
+    payload.pg = '나이스페이';
+    payload.method = '네이버페이';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
+
 
 
     payload.orderId = DateTime.now().millisecondsSinceEpoch.toString(); //주문번호, 개발사에서 고유값으로 지정해야함
