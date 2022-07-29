@@ -70,9 +70,6 @@ class BioPayment extends StatelessWidget {
         Bootpay().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
         //TODO - 원하시는 라우터로 페이지 이동
       },
-      onCloseHardware: () {
-        print('------- onCloseHardware');
-      },
       onIssued: (String data) {
         print('------- onIssued: $data');
       },
@@ -101,7 +98,7 @@ class BioPayment extends StatelessWidget {
 
   User generateUser() {
     var user = User();
-    user.id = '123411aaaaaaaaaaaabd4ss11';
+    user.id = '123411aaaaaaaaaaaabd4ss1212';
     user.gender = 1;
     user.email = 'test1234@gmail.com';
     user.phone = '01012345678';

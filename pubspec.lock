@@ -42,21 +42,21 @@ packages:
       name: bootpay
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.3"
+    version: "4.2.5"
   bootpay_bio:
     dependency: "direct main"
     description:
       name: bootpay_bio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.6"
+    version: "4.2.2"
   bootpay_webview_flutter:
     dependency: transitive
     description:
       name: bootpay_webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.1"
+    version: "3.2.2"
   carousel_slider:
     dependency: transitive
     description:
