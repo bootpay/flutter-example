@@ -4,6 +4,7 @@ import 'package:bootpay/model/item.dart';
 import 'package:bootpay/model/payload.dart';
 import 'package:bootpay/model/user.dart';
 import 'package:bootpay_bio/bootpay_bio.dart';
+import 'package:bootpay_bio/models/bio_extra.dart';
 import 'package:bootpay_bio/models/bio_payload.dart';
 import 'package:bootpay_bio/models/bio_price.dart';
 import 'package:flutter/foundation.dart';
@@ -150,7 +151,7 @@ class PasswordPayment extends StatelessWidget {
     // payload.it
 
 
-    Extra extra = Extra(); // 결제 옵션
+    BioExtra extra = BioExtra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
     // extra.cardQuota = '3';
     // extra.openType = 'popup';

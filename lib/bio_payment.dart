@@ -5,6 +5,7 @@ import 'package:bootpay/model/payload.dart';
 import 'package:bootpay/model/stat_item.dart';
 import 'package:bootpay/model/user.dart';
 import 'package:bootpay_bio/bootpay_bio.dart';
+import 'package:bootpay_bio/models/bio_extra.dart';
 import 'package:bootpay_bio/models/bio_payload.dart';
 import 'package:bootpay_bio/models/bio_price.dart';
 import 'package:flutter/foundation.dart';
@@ -67,13 +68,14 @@ class BioPayment extends StatelessWidget {
       },
       onClose: () {
         print('------- onClose');
-        Bootpay().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
+        BootpayBio().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
         //TODO - 원하시는 라우터로 페이지 이동
       },
       onIssued: (String data) {
         print('------- onIssued: $data');
       },
       onConfirm: (String data) {
+        print('------- onConfirm: $data');
         /**
             1. 바로 승인하고자 할 때
             return true;
@@ -98,7 +100,7 @@ class BioPayment extends StatelessWidget {
 
   User generateUser() {
     var user = User();
-    user.id = '123411aaaaaaaaaaaabd4ss1212';
+    user.id = '123411aaaaaaaaaaaabd4ss12123';
     user.gender = 1;
     user.email = 'test1234@gmail.com';
     user.phone = '01012345678';
@@ -149,8 +151,9 @@ class BioPayment extends StatelessWidget {
     // payload.it
 
 
-    Extra extra = Extra(); // 결제 옵션
+    BioExtra extra = BioExtra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
+    // extra.separatelyConfirmedBio = true;
     // extra.cardQuota = '3';
     // extra.openType = 'popup';
 
