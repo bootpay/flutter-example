@@ -1,4 +1,4 @@
-# bootpay 플러터 ㄱㅗㅇ식 예제 
+# bootpay 플러터 공식 예제 
 
 부트페이에서 지원하는 공식 Flutter 공식 예제 입니다 
 * PG 결제창 연동은 클라이언트 라이브러리에서 수행됩니다. (Javascript, Android, iOS, React Native, Flutter 등)
