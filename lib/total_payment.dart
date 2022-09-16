@@ -45,7 +45,7 @@ class TotalPayment extends StatelessWidget {
         print('------- onCancel: $data');
       },
       onError: (String data) {
-        print('------- onCancel: $data');
+        print('------- onError: $data');
       },
       onClose: () {
         print('------- onClose');
@@ -56,6 +56,7 @@ class TotalPayment extends StatelessWidget {
         print('------- onIssued: $data');
       },
       onConfirm: (String data) {
+        print('------- onConfirm: $data');
         /**
             1. 바로 승인하고자 할 때
             return true;
@@ -98,7 +99,7 @@ class TotalPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    // payload.pg = '나이스페이';
+    payload.pg = '나이스페이';
     // payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명

@@ -12,7 +12,7 @@ class DefaultPayment extends StatelessWidget {
 
   String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
-  String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+  String iosApplicationId = '63030a85d01c7e001af64359';
 
 
   @override
@@ -99,7 +99,7 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '다날';
+    payload.pg = '나이스페이';
     payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
