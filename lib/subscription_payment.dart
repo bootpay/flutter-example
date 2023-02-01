@@ -126,6 +126,7 @@ class SubscriptionPayment extends StatelessWidget {
     Extra extra = Extra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
     extra.cardQuota = '3';
+    extra.subscribeTestPayment = payload.price != 0; //0원 일 경우 false
     // extra.openType = 'popup';
 
     // extra.carrier = "SKT,KT,LGT"; //본인인증 시 고정할 통신사명
