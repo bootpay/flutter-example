@@ -76,7 +76,7 @@ Page resource error:
           );
         },
       )
-      ..loadRequest(Uri.parse('https://flutter.dev'));
+      ..loadRequest(Uri.parse('https://flutter.dev')); //이곳에 웹 url 을 연결하세요
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
