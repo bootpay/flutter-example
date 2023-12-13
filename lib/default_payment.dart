@@ -100,7 +100,7 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '이니시스';
+    payload.pg = '나이스페이';
     payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
@@ -129,7 +129,9 @@ class DefaultPayment extends StatelessWidget {
     Extra extra = Extra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
     extra.cardQuota = '3';
-    // extra.openType = 'popup';
+    extra.directCardCompany = "국민"; //https://docs.bootpay.co.kr/?front=web&backend=nodejs#enum-card 참조
+    extra.directCardQuota = "00"; //directCardCompany 옵션 사용시 필수값,
+
 
     // extra.carrier = "SKT,KT,LGT"; //본인인증 시 고정할 통신사명
     // extra.ageLimit = 20; // 본인인증시 제한할 최소 나이 ex) 20 -> 20살 이상만 인증이 가능
