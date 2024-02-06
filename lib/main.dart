@@ -74,18 +74,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () => Get.to(AuthenticationPayment()),
                   child: const Text('5. 본인인증 테스트', style: TextStyle(fontSize: 16.0))
               ),
-              // TextButton(
-              //     onPressed: () => Get.to(BioPayment()),
-              //     child: const Text('6. 생체인증 결제 테스트', style: TextStyle(fontSize: 16.0))
-              // ),
-              // TextButton(
-              //     onPressed: () => Get.to(PasswordPayment()),
-              //     child: const Text('7. 비밀번호 결제 테스트', style: TextStyle(fontSize: 16.0))
-              // ),
-              // TextButton(
-              //     onPressed: () => Get.to(PasswordWebPayment()),
-              //     child: const Text('7. 비밀번호 결제 테스트 - BootpayUI', style: TextStyle(fontSize: 16.0))
-              // ),
+              TextButton(
+                  onPressed: () => Get.to(BioPayment()),
+                  child: const Text('6. 생체인증 결제 테스트', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(PasswordPayment()),
+                  child: const Text('7. 비밀번호 결제 테스트', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(PasswordWebPayment()),
+                  child: const Text('7. 비밀번호 결제 테스트 - BootpayUI', style: TextStyle(fontSize: 16.0))
+              ),
               TextButton(
                   onPressed: () => Get.to(WebAppPayment()),
                   child: const Text('8. 웹앱으로 연동하기', style: TextStyle(fontSize: 16.0))
