@@ -1,4 +1,5 @@
 import 'package:bootpay/bootpay.dart';
+import 'package:bootpay/config/bootpay_config.dart';
 import 'package:bootpay/model/extra.dart';
 import 'package:bootpay/model/item.dart';
 import 'package:bootpay/model/payload.dart';
@@ -35,9 +36,9 @@ class DefaultPayment extends StatelessWidget {
     if(kIsWeb) {
       payload.extra?.openType = "iframe";
     }
-    payload.extra?.openType = "iframe";
+    // payload.extra?.openType = "iframe";
 
-
+    BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
     Bootpay().requestPayment(
       context: context,
       payload: payload,

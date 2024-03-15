@@ -1,6 +1,5 @@
 
 
-import 'package:bootpay_bio/constants/bio_constants.dart';
 import 'package:get/get.dart';
 import 'package:bootpay/model/user.dart';
 
