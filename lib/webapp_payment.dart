@@ -76,7 +76,7 @@ Page resource error:
           );
         },
       )
-      ..loadRequest(Uri.parse('https://flutter.dev')); //이곳에 웹 url 을 연결하세요
+      ..loadRequest(Uri.parse('https://dev-js.bootapi.com/test/payment/')); //이곳에 웹 url 을 연결하세요
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
@@ -91,6 +91,9 @@ Page resource error:
 
   @override
   Widget build(context) {
+
+    print("webapp rebuild");
+
     return Scaffold(
       backgroundColor: Colors.green,
       body: WebViewWidget(controller: _controller),

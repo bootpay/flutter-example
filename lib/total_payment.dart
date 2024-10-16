@@ -14,6 +14,10 @@ class TotalPayment extends StatelessWidget {
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
 
+  // String webApplicationId = '620513e2e38c30002515ea4d';
+  // String androidApplicationId = '620513e2e38c30002515ea4e';
+  // String iosApplicationId = '620513e2e38c30002515ea4f';
+
   @override
   Widget build(context) {
     // Access the updated count variable
@@ -82,17 +86,18 @@ class TotalPayment extends StatelessWidget {
   Payload getPayload() {
     Payload payload = Payload();
     Item item1 = Item();
-    item1.name = "미키 '마우스"; // 주문정보에 담길 상품명
+    item1.name = "바나나(과테말라) 1송이(1.2Kg)"; // 주문정보에 담길 상품명
     item1.qty = 1; // 해당 상품의 주문 수량
-    item1.id = "ITEM_CODE_MOUSE"; // 해당 상품의 고유 키
-    item1.price = 500; // 상품의 가격
+    item1.id = "바나나-치키타"; // 해당 상품의 고유 키
+    item1.price = 2900; // 상품의 가격
+    item1.cat1 = '과일'; // 상품의 가격
 
-    Item item2 = Item();
-    item2.name = "키보드"; // 주문정보에 담길 상품명
-    item2.qty = 1; // 해당 상품의 주문 수량
-    item2.id = "ITEM_CODE_KEYBOARD"; // 해당 상품의 고유 키
-    item2.price = 500; // 상품의 가격
-    List<Item> itemList = [item1, item2];
+    // Item item2 = Item();
+    // item2.name = "키보드"; // 주문정보에 담길 상품명
+    // item2.qty = 1; // 해당 상품의 주문 수량
+    // item2.id = "ITEM_CODE_KEYBOARD"; // 해당 상품의 고유 키
+    // item2.price = 500; // 상품의 가격
+    List<Item> itemList = [item1];
 
     payload.webApplicationId = webApplicationId; // web application id
     payload.androidApplicationId = androidApplicationId; // android application id
@@ -101,28 +106,29 @@ class TotalPayment extends StatelessWidget {
 
     payload.pg = '나이스페이';
     // payload.method = '카드';
-    // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
-    payload.orderName = "테스트 상품"; //결제할 상품명
-    payload.price = 1000.0; //정기결제시 0 혹은 주석
+    payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao', 'npay'];
+    payload.orderName = "바나나(과테말라) 1송이(1.2Kg)"; //결제할 상품명
+    payload.price = 2900.0; //정기결제시 0 혹은 주석
 
 
-    payload.orderId = DateTime.now().millisecondsSinceEpoch.toString(); //주문번호, 개발사에서 고유값으로 지정해야함
+
+    payload.orderId = "a9d1b5c626c057c76682c2c03445f19d3634b5a74bf8fb5cf816ad37eb29e5ca.4469490dd1a9062c83f55129054ed763";
 
 
-    payload.metadata = {
-      "callbackParam1" : "value12",
-      "callbackParam2" : "value34",
-      "callbackParam3" : "value56",
-      "callbackParam4" : "value78",
-    }; // 전달할 파라미터, 결제 후 되돌려 주는 값
+    // payload.metadata = {
+    //   "callbackParam1" : "value12",
+    //   "callbackParam2" : "value34",
+    //   "callbackParam3" : "value56",
+    //   "callbackParam4" : "value78",
+    // }; // 전달할 파라미터, 결제 후 되돌려 주는 값
     payload.items = itemList; // 상품정보 배열
 
     User user = User(); // 구매자 정보
-    user.username = "사용자 이름";
-    user.email = "user1234@gmail.com";
-    user.area = "서울";
-    user.phone = "010-4033-4678";
-    user.addr = '서울시 동작구 상도로 222';
+    user.username = "맥북";
+    // user.email = "user1234@gmail.com";
+    // user.area = "서울";
+    user.phone = "00011112222";
+    // user.addr = '서울시 동작구 상도로 222';
 
     Extra extra = Extra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';

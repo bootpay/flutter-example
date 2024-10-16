@@ -16,6 +16,7 @@ class DefaultPayment extends StatelessWidget {
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
 
 
+
   @override
   Widget build(context) {
     // Access the updated count variable
@@ -34,7 +35,7 @@ class DefaultPayment extends StatelessWidget {
   void bootpayTest(BuildContext context) {
     Payload payload = getPayload();
     if(kIsWeb) {
-      payload.extra?.openType = "iframe";
+      payload.extra?.openType = "popup";
     }
     // payload.extra?.openType = "iframe";
 
@@ -43,6 +44,7 @@ class DefaultPayment extends StatelessWidget {
       context: context,
       payload: payload,
       showCloseButton: false,
+      userAgent: "mozilla/5.0 (iphone; cpu iphone os 15_0_1 like mac os x) applewebkit/605.1.15 (khtml, like gecko) version/15.0 mobile/15e148 safari/604.1",
       // closeButton: Icon(Icons.close, size: 35.0, color: Colors.black54),
       onCancel: (String data) {
         print('------- onCancel: $data');
@@ -101,8 +103,9 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '나이스페이';
-    payload.method = '카드';
+    payload.pg = '다날';
+    payload.method = "카드자동";
+    // payload.method = '가상계좌';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
