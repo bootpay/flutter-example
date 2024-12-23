@@ -44,7 +44,7 @@ class DefaultPayment extends StatelessWidget {
       context: context,
       payload: payload,
       showCloseButton: false,
-      userAgent: "mozilla/5.0 (iphone; cpu iphone os 15_0_1 like mac os x) applewebkit/605.1.15 (khtml, like gecko) version/15.0 mobile/15e148 safari/604.1",
+      // userAgent: "mozilla/5.0 (iphone; cpu iphone os 15_0_1 like mac os x) applewebkit/605.1.15 (khtml, like gecko) version/15.0 mobile/15e148 safari/604.1",
       // closeButton: Icon(Icons.close, size: 35.0, color: Colors.black54),
       onCancel: (String data) {
         print('------- onCancel: $data');
@@ -103,8 +103,8 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '다날';
-    payload.method = "카드자동";
+    payload.pg = '나이스페이';
+    // payload.method = "카드자동";
     // payload.method = '가상계좌';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
