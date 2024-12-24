@@ -71,7 +71,7 @@ class PasswordWebPayment extends StatelessWidget {
     }
 
 
-    Bootpay().requestPayment(
+    Bootpay().requestPassword(
       context: context,
       payload: payload,
       showCloseButton: false,
@@ -91,6 +91,7 @@ class PasswordWebPayment extends StatelessWidget {
         print('------- onIssued: $data');
       },
       onConfirm: (String data) {
+        print('------- onConfirm: $data');
         /**
             1. 바로 승인하고자 할 때
             return true;
