@@ -35,7 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  bootpay: 4.9.95
+#  bootpay: 4.9.95
+  bootpay: 4.9.98
 #  bootpay_bio: 4.8.5
   get: ^4.6.5
 
