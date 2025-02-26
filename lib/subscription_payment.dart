@@ -97,7 +97,7 @@ class SubscriptionPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '페이레터';
+    payload.pg = '토스페이먼츠';
     payload.method = '카드자동';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명

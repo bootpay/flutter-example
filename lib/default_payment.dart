@@ -39,7 +39,7 @@ class DefaultPayment extends StatelessWidget {
     }
     // payload.extra?.openType = "iframe";
 
-    BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
+    // BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
     Bootpay().requestPayment(
       context: context,
       payload: payload,
@@ -103,7 +103,7 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '나이스페이';
+    payload.pg = '스마트로';
     // payload.method = "카드자동";
     // payload.method = '가상계좌';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
@@ -133,8 +133,8 @@ class DefaultPayment extends StatelessWidget {
     Extra extra = Extra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
     extra.cardQuota = '3';
-    extra.directCardCompany = "국민"; //https://docs.bootpay.co.kr/?front=web&backend=nodejs#enum-card 참조
-    extra.directCardQuota = "00"; //directCardCompany 옵션 사용시 필수값,
+    // extra.directCardCompany = "국민"; //https://docs.bootpay.co.kr/?front=web&backend=nodejs#enum-card 참조
+    // extra.directCardQuota = "00"; //directCardCompany 옵션 사용시 필수값,
 
 
     // extra.carrier = "SKT,KT,LGT"; //본인인증 시 고정할 통신사명
