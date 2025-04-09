@@ -36,9 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
 #  bootpay: 4.9.95
   bootpay: ^5.0.12
-#  webview_flutter: ^4.10.0
+  webview_flutter: ^4.10.0
 #  kakao_flutter_sdk: ^1.9.6
-#  bootpay_bio: ^5.0.12
+  bootpay_bio: ^5.0.14
   get: ^4.6.5
 
 

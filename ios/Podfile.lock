@@ -6,7 +6,6 @@ PODS:
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
-    - Toast
   - local_auth_darwin (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -15,9 +14,11 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - Toast (4.1.1)
-  - vibration (1.7.5):
+  - vibration (3.0.0):
     - Flutter
+  - webview_flutter_wkwebview (0.0.1):
+    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
   - bootpay_webview_flutter_wkwebview (from `.symlinks/plugins/bootpay_webview_flutter_wkwebview/ios`)
@@ -28,10 +29,7 @@ DEPENDENCIES:
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - vibration (from `.symlinks/plugins/vibration/ios`)
-
-SPEC REPOS:
-  trunk:
-    - Toast
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
 
 EXTERNAL SOURCES:
   bootpay_webview_flutter_wkwebview:
@@ -50,18 +48,20 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   vibration:
     :path: ".symlinks/plugins/vibration/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
-  bootpay_webview_flutter_wkwebview: 8d89306c2321b85ae7611f6abb34132382d83bd5
-  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  bootpay_webview_flutter_wkwebview: 9b80e1ac2dc82471e0b95f5f45749e066103e328
+  device_info_plus: 21fcca2080fbcd348be798aa36c3e5ed849eefbe
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  fluttertoast: e9a18c7be5413da53898f660530c56f35edfba9c
-  local_auth_darwin: 66e40372f1c29f383a314c738c7446e2f7fdadc3
-  package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
-  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
-  Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
-  vibration: 7d883d141656a1c1a6d8d238616b2042a51a1241
+  fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
+  local_auth_darwin: 553ce4f9b16d3fdfeafce9cf042e7c9f77c1c391
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  vibration: 69774ad57825b11c951ee4c46155f455d7a592ce
+  webview_flutter_wkwebview: 1821ceac936eba6f7984d89a9f3bcb4dea99ebb2
 
 PODFILE CHECKSUM: b84c29bf8104a81af5f4ba9608042016a661bfec
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
