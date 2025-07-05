@@ -153,7 +153,7 @@ class BioPayment extends StatelessWidget {
 
     BioExtra extra = BioExtra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';
-    extra.separatelyConfirmedBio = true;
+    extra.separatelyConfirmed = true;
     // extra.cardQuota = '3';
     // extra.openType = 'popup';
 

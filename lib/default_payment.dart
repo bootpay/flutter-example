@@ -17,6 +17,8 @@ class DefaultPayment extends StatelessWidget {
 
 
 
+
+
   @override
   Widget build(context) {
     // Access the updated count variable
@@ -37,7 +39,7 @@ class DefaultPayment extends StatelessWidget {
     if(kIsWeb) {
       payload.extra?.openType = "popup";
     }
-    // payload.extra?.openType = "iframe";
+    payload.extra?.openType = "iframe";
 
     // BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
     Bootpay().requestPayment(
@@ -103,9 +105,9 @@ class DefaultPayment extends StatelessWidget {
     payload.iosApplicationId = iosApplicationId; // ios application id
 
 
-    payload.pg = '스마트로';
+    payload.pg = '나이스페이';
     // payload.method = "카드자동";
-    // payload.method = '가상계좌';
+    payload.method = '네이버페이';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
