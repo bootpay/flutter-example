@@ -39,7 +39,10 @@ class DefaultPayment extends StatelessWidget {
     if(kIsWeb) {
       payload.extra?.openType = "popup";
     }
+
     payload.extra?.openType = "iframe";
+
+
 
     // BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
     Bootpay().requestPayment(

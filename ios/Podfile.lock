@@ -1,6 +1,7 @@
 PODS:
   - bootpay_webview_flutter_wkwebview (0.0.1):
     - Flutter
+    - FlutterMacOS
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -21,7 +22,7 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
-  - bootpay_webview_flutter_wkwebview (from `.symlinks/plugins/bootpay_webview_flutter_wkwebview/ios`)
+  - bootpay_webview_flutter_wkwebview (from `.symlinks/plugins/bootpay_webview_flutter_wkwebview/darwin`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
@@ -33,7 +34,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   bootpay_webview_flutter_wkwebview:
-    :path: ".symlinks/plugins/bootpay_webview_flutter_wkwebview/ios"
+    :path: ".symlinks/plugins/bootpay_webview_flutter_wkwebview/darwin"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
@@ -52,9 +53,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
-  bootpay_webview_flutter_wkwebview: 9b80e1ac2dc82471e0b95f5f45749e066103e328
+  bootpay_webview_flutter_wkwebview: 220869320a60b1b06a91ad439eb8b32165158d15
   device_info_plus: 21fcca2080fbcd348be798aa36c3e5ed849eefbe
-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
   local_auth_darwin: 553ce4f9b16d3fdfeafce9cf042e7c9f77c1c391
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
@@ -62,6 +63,6 @@ SPEC CHECKSUMS:
   vibration: 69774ad57825b11c951ee4c46155f455d7a592ce
   webview_flutter_wkwebview: 1821ceac936eba6f7984d89a9f3bcb4dea99ebb2
 
-PODFILE CHECKSUM: b84c29bf8104a81af5f4ba9608042016a661bfec
+PODFILE CHECKSUM: 23e1b5867afbc3f177c752577d5483788e0c1e85
 
 COCOAPODS: 1.16.2
