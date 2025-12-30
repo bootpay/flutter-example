@@ -38,11 +38,11 @@ dependencies:
 
 
 
-  bootpay: 5.0.22
+  bootpay: 5.0.24
 
   webview_flutter: ^4.10.0
 #  kakao_flutter_sdk: ^1.9.6
-  bootpay_bio: 5.0.18
+#  bootpay_bio: 5.0.18
   get: ^4.6.5
 
 

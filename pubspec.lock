@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.13.0"
-  base32:
-    dependency: transitive
-    description:
-      name: base32
-      sha256: ddad4ebfedf93d4500818ed8e61443b734ffe7cf8a45c668c9b34ef6adde02e2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.3"
   boolean_selector:
     dependency: transitive
     description:
@@ -45,18 +37,10 @@ packages:
     dependency: "direct main"
     description:
       name: bootpay
-      sha256: cc0b22571909ad48edd09b78c7b2a918c2708aa33dadc1bdf73021b94a31fd10
+      sha256: eae4376f9fcce8253da6041a490872d7dae9f8bfb49a8202737efa3527653fcf
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.22"
-  bootpay_bio:
-    dependency: "direct main"
-    description:
-      name: bootpay_bio
-      sha256: "90bb2f390aa899fa90379484b558126e12554ca88c45197a0f95a8ec6b6d87b1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.14"
+    version: "5.0.24"
   bootpay_webview_flutter:
     dependency: transitive
     description:
@@ -69,10 +53,10 @@ packages:
     dependency: transitive
     description:
       name: bootpay_webview_flutter_android
-      sha256: "880ed9d93b9662e02158dd6bc5d0d8089462b9c0636daf2451b2a6ad9fc97334"
+      sha256: f10327c1a1a5cd35ea0967ae5299b2bf1a449bb85de579fc88db63d26c38282d
       url: "https://pub.dev"
     source: hosted
-    version: "4.10.57"
+    version: "4.10.58"
   bootpay_webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -89,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.23.27"
-  carousel_slider:
-    dependency: transitive
-    description:
-      name: carousel_slider
-      sha256: "7b006ec356205054af5beaef62e2221160ea36b90fb70a35e4deacd49d0349ae"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.0"
   characters:
     dependency: transitive
     description:
@@ -145,22 +121,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  device_info_plus:
-    dependency: transitive
-    description:
-      name: device_info_plus
-      sha256: "306b78788d1bb569edb7c55d622953c2414ca12445b41c9117963e03afc5c513"
-      url: "https://pub.dev"
-    source: hosted
-    version: "11.3.3"
-  device_info_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: device_info_plus_platform_interface
-      sha256: "0b04e02b30791224b31969eb1b50d723498f402971bff3630bca2ba839bd1ed2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.2"
   encrypt:
     dependency: transitive
     description:
@@ -214,14 +174,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
-  flutter_plugin_android_lifecycle:
-    dependency: transitive
-    description:
-      name: flutter_plugin_android_lifecycle
-      sha256: "5a1e6fb2c0561958d7e4c33574674bda7b77caaca7a33b758876956f2902eea3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.27"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -312,54 +264,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
-  local_auth:
-    dependency: transitive
-    description:
-      name: local_auth
-      sha256: "434d854cf478f17f12ab29a76a02b3067f86a63a6d6c4eb8fbfdcfe4879c1b7b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.0"
-  local_auth_android:
-    dependency: transitive
-    description:
-      name: local_auth_android
-      sha256: "0abe4e72f55c785b28900de52a2522c86baba0988838b5dc22241b072ecccd74"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.48"
-  local_auth_darwin:
-    dependency: transitive
-    description:
-      name: local_auth_darwin
-      sha256: "630996cd7b7f28f5ab92432c4b35d055dd03a747bc319e5ffbb3c4806a3e50d2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.3"
-  local_auth_platform_interface:
-    dependency: transitive
-    description:
-      name: local_auth_platform_interface
-      sha256: "1b842ff177a7068442eae093b64abe3592f816afd2a533c0ebcdbe40f9d2075a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.10"
-  local_auth_windows:
-    dependency: transitive
-    description:
-      name: local_auth_windows
-      sha256: bc4e66a29b0fdf751aafbec923b5bed7ad6ed3614875d8151afe2578520b2ab5
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.11"
-  logging:
-    dependency: transitive
-    description:
-      name: logging
-      sha256: c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.0"
   matcher:
     dependency: transitive
     description:
@@ -384,14 +288,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-  otp:
-    dependency: transitive
-    description:
-      name: otp
-      sha256: fcb7f21e30c4cd80a0a982c27a9b75151cc1fe3d8f7ee680673c090171b1ad55
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.4"
   package_info_plus:
     dependency: transitive
     description:
@@ -581,14 +477,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.7"
-  timezone:
-    dependency: transitive
-    description:
-      name: timezone
-      sha256: "2236ec079a174ce07434e89fcd3fcda430025eb7692244139a9cf54fdcf1fc7d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.4"
   typed_data:
     dependency: transitive
     description:
@@ -613,22 +501,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
-  vibration:
-    dependency: transitive
-    description:
-      name: vibration
-      sha256: "804ee8f9628f31ee71fbe6137a2bc6206a64e101ec22cd9dd6d3a7dc0272591b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.3"
-  vibration_platform_interface:
-    dependency: transitive
-    description:
-      name: vibration_platform_interface
-      sha256: "03e9deaa4df48a1a6212e281bfee5f610d62e9247929dd2f26f4efd4fa5e225c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
   vm_service:
     dependency: transitive
     description:
@@ -685,14 +557,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.12.0"
-  win32_registry:
-    dependency: transitive
-    description:
-      name: win32_registry
-      sha256: "6f1b564492d0147b330dd794fee8f512cec4977957f310f9951b5f9d83618dae"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
   xdg_directories:
     dependency: transitive
     description:

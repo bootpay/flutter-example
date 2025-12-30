@@ -36,9 +36,9 @@ class DefaultPayment extends StatelessWidget {
 
   void bootpayTest(BuildContext context) {
     Payload payload = getPayload();
-    if(kIsWeb) {
-      payload.extra?.openType = "popup";
-    }
+    // if(kIsWeb) {
+    //   payload.extra?.openType = "popup";
+    // }
 
     payload.extra?.openType = "iframe";
 
@@ -110,7 +110,7 @@ class DefaultPayment extends StatelessWidget {
 
     payload.pg = '나이스페이';
     // payload.method = "카드자동";
-    payload.method = '네이버페이';
+    payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
