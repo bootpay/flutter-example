@@ -14,6 +14,7 @@ class DefaultPayment extends StatelessWidget {
   String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+  String clientKey = 'sEN72kYZBiyMNytA8nUGxQ'; // Commerce API client_key
 
 
 
@@ -106,6 +107,7 @@ class DefaultPayment extends StatelessWidget {
     payload.webApplicationId = webApplicationId; // web application id
     payload.androidApplicationId = androidApplicationId; // android application id
     payload.iosApplicationId = iosApplicationId; // ios application id
+    payload.clientKey = clientKey; // client_key 설정 시 application_id 대신 사용됨
 
 
     payload.pg = '나이스페이';
