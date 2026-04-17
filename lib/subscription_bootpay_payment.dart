@@ -1,4 +1,5 @@
 import 'package:bootpay/bootpay.dart';
+import 'config/bootpay_env.dart';
 import 'package:bootpay/config/bootpay_config.dart';
 import 'package:bootpay/model/extra.dart';
 import 'package:bootpay/model/item.dart';
@@ -11,10 +12,10 @@ import 'package:flutter/material.dart';
 class SubscriptionBootpayPayment extends StatelessWidget {
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
 
-  String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
-  String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
-  String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
-  String clientKey = 'sEN72kYZBiyMNytA8nUGxQ'; // Commerce API client_key
+  String webApplicationId = BootpayEnvConfig.webApplicationId;
+  String androidApplicationId = BootpayEnvConfig.androidApplicationId;
+  String iosApplicationId = BootpayEnvConfig.iosApplicationId;
+  String clientKey = BootpayEnvConfig.clientKey; // Commerce API client_key
 
   @override
   Widget build(context) {

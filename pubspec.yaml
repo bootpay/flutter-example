@@ -38,12 +38,15 @@ dependencies:
 
 
 
-  bootpay: 5.0.24
+  # local: path 참조 — DO NOT COMMIT (검증 후 `bootpay: <new-version>` 으로 되돌릴 것)
+  bootpay:
+    path: ../bootpay-flutter
 
   webview_flutter: ^4.10.0
 #  kakao_flutter_sdk: ^1.9.6
 #  bootpay_bio: 5.0.18
   get: ^4.6.5
+  flutter_dotenv: ^5.1.0
 
 
 dev_dependencies:
@@ -69,6 +72,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - .env
 
   # To add assets to your application, add an assets section, like this:
   # assets:

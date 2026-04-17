@@ -1,3 +1,4 @@
+import 'config/bootpay_env.dart';
 // import 'package:bootpay/bootpay.dart';
 // import 'package:bootpay/model/extra.dart';
 // import 'package:bootpay/model/item.dart';
@@ -16,9 +17,9 @@
 // class BioPayment extends StatelessWidget {
 //   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
 //
-//   String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
-//   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
-//   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+//   String webApplicationId = BootpayEnvConfig.webApplicationId;
+//   String androidApplicationId = BootpayEnvConfig.androidApplicationId;
+//   String iosApplicationId = BootpayEnvConfig.iosApplicationId;
 //
 //   @override
 //   Widget build(context) {

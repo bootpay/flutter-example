@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:pg_test_flutter/authentication_payment.dart';
 import 'package:pg_test_flutter/password_payment.dart';
@@ -8,10 +9,19 @@ import 'package:pg_test_flutter/total_payment.dart';
 import 'package:pg_test_flutter/webapp_payment.dart';
 
 import 'bio_payment.dart';
+import 'commerce_payment.dart';
 import 'default_payment.dart';
 import 'subscription_bootpay_payment.dart';
+import 'widget_payment.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // .env 미존재 시에도 무시하고 production fallback 으로 동작 (BootpayConfig 참조)
+  try {
+    await dotenv.load(fileName: '.env');
+  } catch (_) {
+    // .env 없음 — production 기본값 사용
+  }
   runApp(const MyApp());
 }
 
@@ -89,6 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
               TextButton(
                   onPressed: () => Get.to(WebAppPayment()),
                   child: const Text('8. 웹앱으로 연동하기', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(const WidgetPayment()),
+                  child: const Text('9. 위젯 결제 테스트', style: TextStyle(fontSize: 16.0))
+              ),
+              TextButton(
+                  onPressed: () => Get.to(const CommercePayment()),
+                  child: const Text('10. Commerce 구독 결제', style: TextStyle(fontSize: 16.0))
               ),
             ],
           ),
