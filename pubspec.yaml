@@ -39,12 +39,13 @@ dependencies:
 
 
   # local: path 참조 — DO NOT COMMIT (검증 후 `bootpay: <new-version>` 으로 되돌릴 것)
-  bootpay:
-    path: ../bootpay-flutter
+#  bootpay:
+#    path: ../bootpay-flutter
+  bootpay: ^5.1.2
 
   webview_flutter: ^4.10.0
 #  kakao_flutter_sdk: ^1.9.6
-#  bootpay_bio: 5.0.18
+  bootpay_bio: ^5.1.1
   get: ^4.6.5
   flutter_dotenv: ^5.1.0
 
