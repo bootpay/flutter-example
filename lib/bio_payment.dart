@@ -25,10 +25,7 @@ class BioPayment extends StatelessWidget {
         child: Center(
           child: TextButton(
             onPressed: () => goBootpayBio(context),
-            child: const Text(
-              '생체인증 결제 테스트',
-              style: TextStyle(fontSize: 16.0),
-            ),
+            child: const Text('생체인증 결제 테스트', style: TextStyle(fontSize: 16.0)),
           ),
         ),
       ),
@@ -42,10 +39,12 @@ class BioPayment extends StatelessWidget {
   }
 
   Future<String> _getUserToken() async {
-    final String restApplicationId = BootpayEnvConfig.restApplicationId;
-    final String pk = BootpayEnvConfig.privateKey;
+    final String serverKey = BootpayEnvConfig.serverKey;
 
-    var res = await _provider.getRestToken(restApplicationId, pk);
+    var res = await _provider.getRestTokenWithClientKey(
+      BootpayEnvConfig.clientKey,
+      serverKey,
+    );
     res = await _provider.getEasyPayUserToken(
       res.body['access_token'],
       _generateUser(),

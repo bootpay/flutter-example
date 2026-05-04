@@ -111,9 +111,9 @@ class DefaultPayment extends StatelessWidget {
     payload.clientKey = clientKey; // client_key 설정 시 application_id 대신 사용됨
 
 
-    payload.pg = '나이스페이';
+    payload.pg = '토스';
     // payload.method = "카드자동";
-    payload.method = '카드';
+    payload.method = '토스';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석

@@ -31,14 +31,12 @@ dependencies:
 
 ## 기본 사용법
 
-### 1. Application ID 설정
+### 1. Client Key 설정
 
-[부트페이 관리자](https://admin.bootpay.co.kr)에서 Application ID를 발급받으세요.
+[부트페이 관리자](https://admin.bootpay.co.kr)에서 client_key를 발급받으세요. 예제 앱은 `.env` 값을 먼저 읽고, 미설정 시 production 테스트 키로 fallback 합니다.
 
 ```dart
-String webApplicationId = '발급받은_WEB_APPLICATION_ID';
-String androidApplicationId = '발급받은_ANDROID_APPLICATION_ID';
-String iosApplicationId = '발급받은_IOS_APPLICATION_ID';
+String clientKey = BootpayEnvConfig.clientKey;
 ```
 
 ### 2. PG 일반 결제 (requestPayment)
@@ -53,10 +51,8 @@ import 'package:bootpay/model/user.dart';
 void bootpayTest(BuildContext context) {
   Payload payload = Payload();
 
-  // Application ID 설정
-  payload.webApplicationId = webApplicationId;
-  payload.androidApplicationId = androidApplicationId;
-  payload.iosApplicationId = iosApplicationId;
+  // Client Key 설정
+  payload.clientKey = BootpayEnvConfig.clientKey;
 
   // 결제 정보
   payload.pg = '스마트로';  // PG사 선택

@@ -23,17 +23,19 @@ class PasswordWebPayment extends StatelessWidget {
   Widget build(context) {
     // Access the updated count variable
     return Scaffold(
-        body: SafeArea(
-            child: Center(
-                child: TextButton(
-                    onPressed: () => goBootpayPassword(context),
-                    child: const Text('비밀번호 결제 테스트(Web 방식)', style: TextStyle(fontSize: 16.0))
-                )
-            )
-        )
+      body: SafeArea(
+        child: Center(
+          child: TextButton(
+            onPressed: () => goBootpayPassword(context),
+            child: const Text(
+              '비밀번호 결제 테스트(Web 방식)',
+              style: TextStyle(fontSize: 16.0),
+            ),
+          ),
+        ),
+      ),
     );
   }
-
 
   // ApiProvider _provider = ApiProvider();
   ApiProvider _provider = ApiProvider();
@@ -42,17 +44,16 @@ class PasswordWebPayment extends StatelessWidget {
     bootpayTest(context, userToken);
   }
 
-
   Future<String> getUserToken(BuildContext context) async {
-    String restApplicationId = BootpayEnvConfig.restApplicationId;
-    String pk = BootpayEnvConfig.privateKey;
-    var res = await _provider.getRestToken(restApplicationId, pk);
+    String serverKey = BootpayEnvConfig.serverKey;
+    var res = await _provider.getRestTokenWithClientKey(clientKey, serverKey);
 
-
-    res = await _provider.getEasyPayUserToken(res.body['access_token'], generateUser());
+    res = await _provider.getEasyPayUserToken(
+      res.body['access_token'],
+      generateUser(),
+    );
     return res.body["user_token"];
   }
-
 
   User generateUser() {
     var user = User();
@@ -68,10 +69,9 @@ class PasswordWebPayment extends StatelessWidget {
 
   void bootpayTest(BuildContext context, String userToken) {
     Payload payload = getPayload(userToken);
-    if(kIsWeb) {
+    if (kIsWeb) {
       payload.extra?.openType = "iframe";
     }
-
 
     Bootpay().requestPassword(
       context: context,
@@ -132,10 +132,10 @@ class PasswordWebPayment extends StatelessWidget {
     List<Item> itemList = [item1, item2];
 
     payload.webApplicationId = webApplicationId; // web application id
-    payload.androidApplicationId = androidApplicationId; // android application id
+    payload.androidApplicationId =
+        androidApplicationId; // android application id
     payload.iosApplicationId = iosApplicationId; // ios application id
     payload.clientKey = clientKey; // client_key 설정 시 application_id 대신 사용됨
-
 
     payload.pg = '나이스페이';
     payload.method = '카드간편';
@@ -144,18 +144,16 @@ class PasswordWebPayment extends StatelessWidget {
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
 
-
-    payload.orderId = DateTime.now().millisecondsSinceEpoch.toString(); //주문번호, 개발사에서 고유값으로 지정해야함
-
+    payload.orderId = DateTime.now().millisecondsSinceEpoch
+        .toString(); //주문번호, 개발사에서 고유값으로 지정해야함
 
     payload.metadata = {
-      "callbackParam1" : "value12",
-      "callbackParam2" : "value34",
-      "callbackParam3" : "value56",
-      "callbackParam4" : "value78",
+      "callbackParam1": "value12",
+      "callbackParam2": "value34",
+      "callbackParam3": "value56",
+      "callbackParam4": "value78",
     }; // 전달할 파라미터, 결제 후 되돌려 주는 값
     payload.items = itemList; // 상품정보 배열
-
 
     Extra extra = Extra(); // 결제 옵션
     extra.appScheme = 'bootpayFlutterExample';

@@ -18,7 +18,10 @@ class BootpayEnvConfig {
   static const String _prodAndroid = '5b8f6a4d396fa665fdc2b5e8';
   static const String _prodIos = '5b8f6a4d396fa665fdc2b5e9';
   static const String _prodRest = '5b8f6a4d396fa665fdc2b5ea';
-  static const String _prodPrivateKey = 'rm6EYECr6aroQVG2ntW0A6LpWnkTgP4uQ3H18sDDUYw=';
+  static const String _prodPrivateKey =
+      'rm6EYECr6aroQVG2ntW0A6LpWnkTgP4uQ3H18sDDUYw=';
+  static const String _prodServerKey =
+      'rnZLJamENRgfwTccwmI_Uu9cxsPpAV9X2W-Htg73yfU=';
   static const String _prodClientKey = 'sEN72kYZBiyMNytA8nUGxQ';
 
   // ===== Development 기본값 =====
@@ -26,7 +29,10 @@ class BootpayEnvConfig {
   static const String _devAndroid = '5b9f51264457636ab9a07cdc';
   static const String _devIos = '5b9f51264457636ab9a07cdd';
   static const String _devRest = '59b731f084382614ebf72215';
-  static const String _devPrivateKey = 'WwDv0UjfwFa04wYG0LJZZv1xwraQnlhnHE375n52X0U=';
+  static const String _devPrivateKey =
+      'WwDv0UjfwFa04wYG0LJZZv1xwraQnlhnHE375n52X0U=';
+  static const String _devServerKey =
+      'r5zxvDcQJiAP2PBQ0aJjSHQtblNmYFt6uFoEMhti_mg=';
   static const String _devClientKey = 'hxS-Up--5RvT6oU6QJE0JA';
 
   static String _envOrEmpty(String key) {
@@ -44,53 +50,66 @@ class BootpayEnvConfig {
 
   static bool get isDevelopment => env == 'development';
 
-  static String _resolve(String devKey, String prodKey, String devFallback, String prodFallback) {
+  static String _resolve(
+    String devKey,
+    String prodKey,
+    String devFallback,
+    String prodFallback,
+  ) {
     final fromEnv = _envOrEmpty(isDevelopment ? devKey : prodKey);
     if (fromEnv.isNotEmpty) return fromEnv;
     return isDevelopment ? devFallback : prodFallback;
   }
 
   static String get webApplicationId => _resolve(
-        'BOOTPAY_WEB_APPLICATION_ID_DEV',
-        'BOOTPAY_WEB_APPLICATION_ID_PROD',
-        _devWeb,
-        _prodWeb,
-      );
+    'BOOTPAY_WEB_APPLICATION_ID_DEV',
+    'BOOTPAY_WEB_APPLICATION_ID_PROD',
+    _devWeb,
+    _prodWeb,
+  );
 
   static String get androidApplicationId => _resolve(
-        'BOOTPAY_ANDROID_APPLICATION_ID_DEV',
-        'BOOTPAY_ANDROID_APPLICATION_ID_PROD',
-        _devAndroid,
-        _prodAndroid,
-      );
+    'BOOTPAY_ANDROID_APPLICATION_ID_DEV',
+    'BOOTPAY_ANDROID_APPLICATION_ID_PROD',
+    _devAndroid,
+    _prodAndroid,
+  );
 
   static String get iosApplicationId => _resolve(
-        'BOOTPAY_IOS_APPLICATION_ID_DEV',
-        'BOOTPAY_IOS_APPLICATION_ID_PROD',
-        _devIos,
-        _prodIos,
-      );
+    'BOOTPAY_IOS_APPLICATION_ID_DEV',
+    'BOOTPAY_IOS_APPLICATION_ID_PROD',
+    _devIos,
+    _prodIos,
+  );
 
   static String get restApplicationId => _resolve(
-        'BOOTPAY_REST_APPLICATION_ID_DEV',
-        'BOOTPAY_REST_APPLICATION_ID_PROD',
-        _devRest,
-        _prodRest,
-      );
+    'BOOTPAY_REST_APPLICATION_ID_DEV',
+    'BOOTPAY_REST_APPLICATION_ID_PROD',
+    _devRest,
+    _prodRest,
+  );
 
+  static String get serverKey => _resolve(
+    'BOOTPAY_SERVER_KEY_DEV',
+    'BOOTPAY_SERVER_KEY_PROD',
+    _devServerKey,
+    _prodServerKey,
+  );
+
+  /// Legacy alias. 기존 예제/사용자 코드 호환을 위해 유지합니다.
   static String get privateKey => _resolve(
-        'BOOTPAY_PRIVATE_KEY_DEV',
-        'BOOTPAY_PRIVATE_KEY_PROD',
-        _devPrivateKey,
-        _prodPrivateKey,
-      );
+    'BOOTPAY_PRIVATE_KEY_DEV',
+    'BOOTPAY_PRIVATE_KEY_PROD',
+    _devPrivateKey,
+    _prodPrivateKey,
+  );
 
   static String get clientKey => _resolve(
-        'BOOTPAY_CLIENT_KEY_DEV',
-        'BOOTPAY_CLIENT_KEY_PROD',
-        _devClientKey,
-        _prodClientKey,
-      );
+    'BOOTPAY_CLIENT_KEY_DEV',
+    'BOOTPAY_CLIENT_KEY_PROD',
+    _devClientKey,
+    _prodClientKey,
+  );
 
   // ===== UI 환경 토글용 명시 게터 (특정 example 화면이 dev/prod 둘 다 직접 참조해야 할 때) =====
   static String get devClientKey {

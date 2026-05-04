@@ -1,5 +1,3 @@
-
-
 import 'package:get/get.dart';
 import 'package:bootpay/model/user.dart';
 
@@ -9,22 +7,32 @@ class ApiProvider extends GetConnect {
     return 'https://api.bootpay.co.kr';
   }
 
-
   Future<Response> getRestToken(String applicationId, String privateKey) async {
-    var payload = {
-      'application_id': applicationId,
-      'private_key': privateKey
-    };
+    var payload = {'application_id': applicationId, 'private_key': privateKey};
 
     String url = "$defaultUrl/v2/request/token";
 
     return post(
-        url,
-        payload,
-        contentType: 'application/json',
-        headers: {
-          'Accept': 'application/json'
-        }
+      url,
+      payload,
+      contentType: 'application/json',
+      headers: {'Accept': 'application/json'},
+    );
+  }
+
+  Future<Response> getRestTokenWithClientKey(
+    String clientKey,
+    String serverKey,
+  ) async {
+    var payload = {'client_key': clientKey, 'server_key': serverKey};
+
+    String url = "$defaultUrl/v2/request/token";
+
+    return post(
+      url,
+      payload,
+      contentType: 'application/json',
+      headers: {'Accept': 'application/json'},
     );
   }
 
@@ -41,13 +49,10 @@ class ApiProvider extends GetConnect {
     String url = "$defaultUrl/v2/request/user/token";
 
     return post(
-        url,
-        payload,
-        contentType: 'application/json',
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': "Bearer $token"
-        }
+      url,
+      payload,
+      contentType: 'application/json',
+      headers: {'Accept': 'application/json', 'Authorization': "Bearer $token"},
     );
   }
 }
