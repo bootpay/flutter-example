@@ -1,3 +1,4 @@
+import 'package:bootpay/config/bootpay_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:pg_test_flutter/webapp_payment.dart';
 
 import 'bio_payment.dart';
 import 'commerce_payment.dart';
+import 'config/bootpay_env.dart';
 import 'default_payment.dart';
 import 'subscription_bootpay_payment.dart';
 import 'widget_payment.dart';
@@ -22,6 +24,10 @@ void main() async {
   } catch (_) {
     // .env 없음 — production 기본값 사용
   }
+  // .env 의 BOOTPAY_ENV 토글을 SDK 내부 ENV 스위치에 반영 (dev API URL 라우팅용)
+  BootpayConfig.ENV = BootpayEnvConfig.isDevelopment
+      ? BootpayConfig.ENV_DEBUG
+      : BootpayConfig.ENV_PROMOTION;
   runApp(const MyApp());
 }
 
