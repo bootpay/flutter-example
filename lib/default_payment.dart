@@ -1,50 +1,73 @@
 import 'package:bootpay/bootpay.dart';
 import 'config/bootpay_env.dart';
-import 'package:bootpay/config/bootpay_config.dart';
 import 'package:bootpay/model/extra.dart';
 import 'package:bootpay/model/item.dart';
 import 'package:bootpay/model/payload.dart';
-import 'package:bootpay/model/stat_item.dart';
 import 'package:bootpay/model/user.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// ignore_for_file: avoid_print
+
+enum PaymentAuthMode { clientKey, legacyApplicationId, missingKey }
+
 class DefaultPayment extends StatelessWidget {
+  DefaultPayment({super.key});
+
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
 
-  String webApplicationId = BootpayEnvConfig.webApplicationId;
-  String androidApplicationId = BootpayEnvConfig.androidApplicationId;
-  String iosApplicationId = BootpayEnvConfig.iosApplicationId;
-  String clientKey = BootpayEnvConfig.clientKey; // Commerce API client_key
-
-
-
-
+  final String webApplicationId = BootpayEnvConfig.webApplicationId;
+  final String androidApplicationId = BootpayEnvConfig.androidApplicationId;
+  final String iosApplicationId = BootpayEnvConfig.iosApplicationId;
+  final String clientKey =
+      BootpayEnvConfig.clientKey; // Commerce API client_key
 
   @override
   Widget build(context) {
     // Access the updated count variable
     return Scaffold(
-        body: SafeArea(
-            child: Center(
-                child: TextButton(
-                    onPressed: () => bootpayTest(context),
-                    child: const Text('PG일반 결제 테스트', style: TextStyle(fontSize: 16.0))
-                )
-            )
-        )
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextButton(
+                onPressed: () =>
+                    bootpayTest(context, PaymentAuthMode.clientKey),
+                child: const Text(
+                  'PG 일반 결제 테스트 (client_key)',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+              TextButton(
+                onPressed: () =>
+                    bootpayTest(context, PaymentAuthMode.legacyApplicationId),
+                child: const Text(
+                  '레거시 결제 테스트 (application_id)',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+              TextButton(
+                onPressed: () =>
+                    bootpayTest(context, PaymentAuthMode.missingKey),
+                child: const Text(
+                  '키 없음 테스트 (NEED_CLIENT_KEY)',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
-  void bootpayTest(BuildContext context) {
-    Payload payload = getPayload();
+  void bootpayTest(BuildContext context, PaymentAuthMode authMode) {
+    Payload payload = getPayload(authMode);
     // if(kIsWeb) {
     //   payload.extra?.openType = "popup";
     // }
 
     payload.extra?.openType = "iframe";
-
-
 
     // BootpayConfig.DISPLAY_WITH_HYBRID_COMPOSITION = true;
     Bootpay().requestPayment(
@@ -90,7 +113,7 @@ class DefaultPayment extends StatelessWidget {
     );
   }
 
-  Payload getPayload() {
+  Payload getPayload(PaymentAuthMode authMode) {
     Payload payload = Payload();
     Item item1 = Item();
     item1.name = "미키 '마우스"; // 주문정보에 담길 상품명
@@ -105,11 +128,7 @@ class DefaultPayment extends StatelessWidget {
     item2.price = 500; // 상품의 가격
     List<Item> itemList = [item1, item2];
 
-    payload.webApplicationId = webApplicationId; // web application id
-    payload.androidApplicationId = androidApplicationId; // android application id
-    payload.iosApplicationId = iosApplicationId; // ios application id
-    payload.clientKey = clientKey; // client_key 설정 시 application_id 대신 사용됨
-
+    applyAuth(payload, authMode);
 
     payload.pg = '토스';
     // payload.method = "카드자동";
@@ -118,16 +137,14 @@ class DefaultPayment extends StatelessWidget {
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석
 
-
-
-    payload.orderId = DateTime.now().millisecondsSinceEpoch.toString(); //주문번호, 개발사에서 고유값으로 지정해야함
-
+    payload.orderId = DateTime.now().millisecondsSinceEpoch
+        .toString(); //주문번호, 개발사에서 고유값으로 지정해야함
 
     payload.metadata = {
-      "callbackParam1" : "value12",
-      "callbackParam2" : "value34",
-      "callbackParam3" : "value56",
-      "callbackParam4" : "value78",
+      "callbackParam1": "value12",
+      "callbackParam2": "value34",
+      "callbackParam3": "value56",
+      "callbackParam4": "value78",
     }; // 전달할 파라미터, 결제 후 되돌려 주는 값
     payload.items = itemList; // 상품정보 배열
 
@@ -144,12 +161,27 @@ class DefaultPayment extends StatelessWidget {
     // extra.directCardCompany = "국민"; //https://docs.bootpay.co.kr/?front=web&backend=nodejs#enum-card 참조
     // extra.directCardQuota = "00"; //directCardCompany 옵션 사용시 필수값,
 
-
     // extra.carrier = "SKT,KT,LGT"; //본인인증 시 고정할 통신사명
     // extra.ageLimit = 20; // 본인인증시 제한할 최소 나이 ex) 20 -> 20살 이상만 인증이 가능
 
     payload.user = user;
     payload.extra = extra;
     return payload;
+  }
+
+  void applyAuth(Payload payload, PaymentAuthMode authMode) {
+    switch (authMode) {
+      case PaymentAuthMode.clientKey:
+        payload.clientKey = clientKey; // 권장: client_key
+        break;
+      case PaymentAuthMode.legacyApplicationId:
+        payload.webApplicationId = webApplicationId;
+        payload.androidApplicationId = androidApplicationId;
+        payload.iosApplicationId = iosApplicationId;
+        break;
+      case PaymentAuthMode.missingKey:
+        // NEED_CLIENT_KEY 검증용
+        break;
+    }
   }
 }
