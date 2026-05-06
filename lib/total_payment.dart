@@ -108,8 +108,7 @@ class TotalPayment extends StatelessWidget {
 
 
     payload.pg = '나이스페이';
-    // payload.method = '카드';
-    payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao', 'npay'];
+    // 통합결제는 method/methods 를 지정하지 않는다 — 결제수단 선택 UI 가 직접 노출됨
     payload.orderName = "바나나(과테말라) 1송이(1.2Kg)"; //결제할 상품명
     payload.price = 2900.0; //정기결제시 0 혹은 주석
 
