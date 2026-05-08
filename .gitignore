@@ -50,3 +50,6 @@ app.*.map.json
 
 # Bootpay 환경 키 — `.env` 는 committed source. `.env.local` 은 로컬 override.
 .env.local
+
+# omj automation runtime
+.omj/
