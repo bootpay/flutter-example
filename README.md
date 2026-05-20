@@ -11,23 +11,25 @@
 
 ```yaml
 dependencies:
-  bootpay: ^5.0.22         # PG 결제
-  bootpay_bio: ^5.0.14     # 생체인증 결제
+  bootpay: ^5.2.0          # PG / Commerce 결제 (Android · iOS · Web)
   get: ^4.6.5              # 라우팅
+  flutter_dotenv: ^5.1.0   # 환경 키 (.env) 로딩
+  webview_flutter: ^4.10.0 # 웹앱 연동 데모용
 ```
+
+> **`bootpay_bio` 는 deprecated** — 생체/비밀번호 간편결제는 `bootpay` 패키지의 결제위젯으로 대체되었습니다. 본 예제에서는 의존성과 메뉴 모두 비활성화되어 있습니다.
 
 ## 테스트 메뉴
 
-| 메뉴 | 설명 | 사용 메서드 |
-|------|------|------------|
-| PG일반 결제 테스트 | 일반 PG 결제 | `requestPayment()` |
-| 통합결제 테스트 | 여러 결제수단 통합 | `requestPayment()` |
-| 카드자동 결제 테스트(인증) | 정기결제 빌링키 발급 | `requestSubscription()` |
-| 카드자동 결제 테스트(비인증) | 비인증 정기결제 | `requestSubscription()` |
-| 본인인증 테스트 | 휴대폰 본인인증 | `requestAuthentication()` |
-| 생체인증 결제 테스트 | 지문/Face ID 결제 | `bootpay_bio` 패키지 |
-| 비밀번호 결제 테스트 | 비밀번호 간편결제 | `bootpay_bio` 패키지 |
-| 웹앱으로 연동하기 | WebView 기반 연동 | WebView |
+| # | 메뉴 | 설명 | 사용 메서드 |
+|---|------|------|------------|
+| 1 | PG 일반 결제 테스트 | 일반 PG 결제 (기본: 나이스페이 / 카드) — `client_key` · legacy `application_id` · 키 없음 3 가지 인증모드 토글 | `requestPayment()` |
+| 2 | 통합결제 테스트 | 여러 결제수단 통합 | `requestPayment()` |
+| 3 | 카드자동 결제 테스트(인증) | 정기결제 빌링키 발급 (인증 방식) | `requestSubscription()` |
+| 4 | 카드자동 결제 테스트(비인증) | 비인증 정기결제 | `requestSubscription()` |
+| 5 | 본인인증 테스트 | 휴대폰 본인인증 | `requestAuthentication()` |
+| 7 | 비밀번호 결제 테스트 - BootpayUI | 비밀번호 간편결제 | `bootpay` 결제위젯 |
+| 8 | 웹앱으로 연동하기 | WebView 기반 연동 | WebView |
 
 ## 기본 사용법
 
@@ -55,7 +57,8 @@ void bootpayTest(BuildContext context) {
   payload.clientKey = BootpayEnvConfig.clientKey;
 
   // 결제 정보
-  payload.pg = '스마트로';  // PG사 선택
+  payload.pg = '나이스페이';   // PG 사 선택 (예제 기본값)
+  payload.method = '카드';
   payload.orderName = "테스트 상품";
   payload.price = 1000.0;
   payload.orderId = DateTime.now().millisecondsSinceEpoch.toString();

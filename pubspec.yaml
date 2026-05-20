@@ -45,7 +45,9 @@ dependencies:
 
   webview_flutter: ^4.10.0
 #  kakao_flutter_sdk: ^1.9.6
-  bootpay_bio: ^5.1.1
+  # bootpay_bio 는 deprecated — 생체/비밀번호 간편결제는 `bootpay` 패키지의 결제위젯으로 대체.
+  # bootpay 5.2.0 의 내부 API 변경과도 호환되지 않아 의존성에서 제거함.
+  # bootpay_bio: ^5.1.1
   get: ^4.6.5
   flutter_dotenv: ^5.1.0
 

@@ -130,9 +130,9 @@ class DefaultPayment extends StatelessWidget {
 
     applyAuth(payload, authMode);
 
-    payload.pg = '토스';
+    payload.pg = '나이스페이';
     // payload.method = "카드자동";
-    payload.method = '토스';
+    payload.method = '카드';
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
     payload.orderName = "테스트 상품"; //결제할 상품명
     payload.price = 1000.0; //정기결제시 0 혹은 주석

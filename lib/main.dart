@@ -9,7 +9,7 @@ import 'package:pg_test_flutter/subscription_payment.dart';
 import 'package:pg_test_flutter/total_payment.dart';
 import 'package:pg_test_flutter/webapp_payment.dart';
 
-import 'bio_payment.dart';
+// bootpay_bio 는 deprecated — bio_payment.dart 비활성
 import 'commerce_payment.dart';
 import 'config/bootpay_env.dart';
 import 'default_payment.dart';
@@ -90,10 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () => Get.to(AuthenticationPayment()),
                   child: const Text('5. 본인인증 테스트', style: TextStyle(fontSize: 16.0))
               ),
-              TextButton(
-                  onPressed: () => Get.to(BioPayment()),
-                  child: const Text('6. 생체인증 결제 테스트 (bootpay_bio)', style: TextStyle(fontSize: 16.0))
-              ),
+              // bootpay_bio 는 deprecated — 생체/비밀번호 간편결제는 `bootpay` 결제위젯으로 대체
+              // TextButton(
+              //     onPressed: () => Get.to(BioPayment()),
+              //     child: const Text('6. 생체인증 결제 테스트 (bootpay_bio)', style: TextStyle(fontSize: 16.0))
+              // ),
               // TextButton(
               //     onPressed: () => Get.to(PasswordPayment()),
               //     child: const Text('7. 비밀번호 결제 테스트', style: TextStyle(fontSize: 16.0))
