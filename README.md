@@ -283,8 +283,8 @@ flutter run -d chrome
 
 ## 문서 및 지원
 
-- [부트페이 개발매뉴얼](https://docs.bootpay.co.kr/)
-- [기술문의 채팅](https://bootpay.channel.io/)
+- [부트페이 결제 개발문서](https://developers.bootpay.ai)
+- [부트페이 홈페이지](https://www.bootpay.ai)
 
 ## License
 
